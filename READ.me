@@ -1,0 +1,61 @@
+# Invoice Management System — Backend
+
+REST API backend for the Invoice Management System, built with Node.js, Express, and MongoDB.
+
+## Tech Stack
+- Node.js + Express.js
+- MongoDB with Mongoose
+- JWT Authentication
+- bcrypt (password hashing)
+
+## Features
+- User registration & login (JWT protected)
+- Create, read, update, delete invoices
+- Public read-only invoice sharing via unique share link
+- Automatic subtotal, tax, discount, and grand total calculation
+
+## Setup Instructions
+
+1. Clone the repository
+```bash
+   git clone <your-repo-url>
+   cd backend
+```
+
+2. Install dependencies
+```bash
+   npm install
+```
+
+3. Create a `.env` file in the root directory (see `.env.example`) and fill in your values:
+4. Run the development server
+```bash
+   npm run dev
+```
+
+The server will start on `http://localhost:5000`.
+
+## API Endpoints
+
+### Auth
+| Method | Endpoint             | Description         |
+|--------|-----------------------|----------------------|
+| POST   | `/api/auth/register`  | Register a new user |
+| POST   | `/api/auth/login`     | Login and get JWT   |
+
+### Invoices (Protected — requires JWT)
+| Method | Endpoint              | Description              |
+|--------|------------------------|---------------------------|
+| GET    | `/api/invoices`        | Get all invoices for user |
+| GET    | `/api/invoice/:id`     | Get single invoice        |
+| POST   | `/api/invoice`         | Create new invoice        |
+| PUT    | `/api/invoice/:id`     | Update invoice             |
+| DELETE | `/api/invoice/:id`     | Delete invoice             |
+
+### Public
+| Method | Endpoint                          | Description                    |
+|--------|-------------------------------------|----------------------------------|
+| GET    | `/api/public/invoice/:shareId`     | View invoice without login      |
+
+## Deployment
+Deployed on Render: `https://invoice-management-ptpz.onrender.com`
