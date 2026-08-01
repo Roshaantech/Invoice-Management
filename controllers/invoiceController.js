@@ -1,4 +1,4 @@
-const Invoice = require('../models/Invoice');
+const Invoice = require('../models/invoice');
 const crypto = require('crypto');
 
 // 1. Create Invoice
